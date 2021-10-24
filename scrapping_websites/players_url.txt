@@ -1,7 +1,6 @@
 https://www.cricbuzz.com/profiles/1413/virat-kohli
 https://www.cricbuzz.com/profiles/576/rohit-sharma
 https://www.cricbuzz.com/profiles/521/ross-taylor
-https://www.cricbuzz.com/profiles/1643/aaron-finch
 https://www.cricbuzz.com/profiles/6507/jonny-bairstow
 https://www.cricbuzz.com/profiles/1739/david-warner
 https://www.cricbuzz.com/profiles/6326/kane-williamson
@@ -48,7 +47,6 @@ https://www.cricbuzz.com/profiles/10100/mitchell-santner
 https://www.cricbuzz.com/profiles/10945/washington-sundar
 https://www.cricbuzz.com/profiles/8683/shardul-thakur
 https://www.cricbuzz.com/profiles/6692/moeen-ali
-https://www.cricbuzz.com/profiles/110/muttiah-muralitharan
 https://www.cricbuzz.com/profiles/105/tillakaratne-dilshan
 https://www.cricbuzz.com/profiles/265/ms-dhoni
 https://www.cricbuzz.com/profiles/25/sachin-tendulkar
@@ -60,7 +58,6 @@ https://www.cricbuzz.com/profiles/2195/mayank-agarwal
 https://www.cricbuzz.com/profiles/12094/prithvi-shaw
 https://www.cricbuzz.com/profiles/1447/ajinkya-rahane
 https://www.cricbuzz.com/profiles/1448/cheteshwar-pujara
-https://www.cricbuzz.com/profiles/9647/hardik-pandya
 https://www.cricbuzz.com/profiles/10744/rishabh-pant
 https://www.cricbuzz.com/profiles/8292/kuldeep-yadav
 https://www.cricbuzz.com/profiles/10808/mohammed-siraj
@@ -100,3 +97,4 @@ https://www.cricbuzz.com/profiles/395/kevin-pietersen
 https://www.cricbuzz.com/profiles/158/shane-watson
 https://www.cricbuzz.com/profiles/201/brendon-mccullum
 https://www.cricbuzz.com/profiles/58/scott-styris
+https://www.cricbuzz.com/profiles/1994/tim-paine

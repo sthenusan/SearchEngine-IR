@@ -1,7 +1,6 @@
 https://www.espncricinfo.com/player/virat-kohli-253802
 https://www.espncricinfo.com/player/rohit-sharma-34102
 https://www.espncricinfo.com/player/ross-taylor-38699
-https://www.espncricinfo.com/player/aaron-finch-5334
 https://www.espncricinfo.com/player/jonny-bairstow-297433
 https://www.espncricinfo.com/player/david-warner-219889
 https://www.espncricinfo.com/player/kane-williamson-277906
@@ -48,7 +47,6 @@ https://www.espncricinfo.com/player/mitchell-santner-502714
 https://www.espncricinfo.com/player/washington-sundar-719715
 https://www.espncricinfo.com/player/shardul-thakur-475281
 https://www.espncricinfo.com/player/moeen-ali-8917
-https://www.espncricinfo.com/player/muthiah-muralidaran-49636
 https://www.espncricinfo.com/player/tillakaratne-dilshan-48472
 https://www.espncricinfo.com/player/ms-dhoni-28081
 https://www.espncricinfo.com/player/sachin-tendulkar-35320
@@ -60,7 +58,6 @@ https://www.espncricinfo.com/player/mayank-agarwal-398438
 https://www.espncricinfo.com/player/prithvi-shaw-1070168
 https://www.espncricinfo.com/player/ajinkya-rahane-277916
 https://www.espncricinfo.com/player/cheteshwar-pujara-32540
-https://www.espncricinfo.com/player/hardik-pandya-625371
 https://www.espncricinfo.com/player/rishabh-pant-931581
 https://www.espncricinfo.com/player/kuldeep-yadav-559235
 https://www.espncricinfo.com/player/mohammed-siraj-940973
@@ -100,3 +97,4 @@ https://www.espncricinfo.com/player/kevin-pietersen-19296
 https://www.espncricinfo.com/player/shane-watson-8180
 https://www.espncricinfo.com/player/brendon-mccullum-37737
 https://www.espncricinfo.com/player/scott-styris-38407
+https://www.espncricinfo.com/player/tim-paine-7252
