@@ -5,7 +5,18 @@ This repo contains 100 players data scraped from https://www.cricbuzz.com and st
 
 ## Sample JSON data of scraped player
 
-# Sample JSON data of a processed player data
+```
+{"Name": "Virat Kholi", 
+"Age": 33, 
+"Tyep": "Batsman", 
+"Batting": "Right hand Bat",
+"Bowling": "Right Arm Fast Medium",
+"Team": "India", 
+"Wickets": 4, 
+"Runs": 12169}
+```
+
+## Sample JSON data of a processed player data
 
 ```
 {"பெயர்": "விராட் கோலி", 
