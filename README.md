@@ -5,7 +5,7 @@ This repo contains 100 players data scraped from https://www.cricbuzz.com and st
 
 ## Sample JSON data of scraped player
 
-## Sample JSON data of scraped song
+# Sample JSON data of a processed player data
 
 ```
 {"பெயர்": "விராட் கோலி", 
