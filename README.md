@@ -101,8 +101,8 @@ POST /_bulk
 
 ```
 
-### Using custom indexing for search
 ```
+#Using custom indexing for search
 # விராட் கோலி  name spelling mistake
 GET /cricsearch/_search
 {
@@ -116,8 +116,9 @@ GET /cricsearch/_search
 }
 ```
 
-### Using standard indexing for search
+
 ```
+#Using standard indexing for search
 #விராட் கோலி name without spell mistake
 GET /cricsearch/_search
 {
