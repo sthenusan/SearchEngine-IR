@@ -61,7 +61,7 @@ PUT /cricsearch/
                 "analyzer": {
                     "my_analyzer": {
                         "tokenizer": "standard",
-                        "filter": ["custom_stopper","custom_stems"]
+                        "filter": ["custom_stopper","custom_stems","custom_synonym"]
                     }
                 },
                 "filter": {
@@ -72,6 +72,10 @@ PUT /cricsearch/
                     "custom_stems": {
                         "type": "stemmer_override",
                         "rules_path": "analysis/stem.txt"
+                    },
+                    "custom_synonym": {
+                        "type": "synonym",
+                        "synonyms_path": "analysis/synonym.txt"                
                     }
                 }
             }
