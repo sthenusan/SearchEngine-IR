@@ -93,7 +93,7 @@ POST /_bulk
 
 ### Using custom indexing for search
 ```
-# விராட் கோலி songs spelling mistake
+# விராட் கோலி  name spelling mistake
 GET /cricsearch/_search
 {
    "query": {
@@ -108,7 +108,7 @@ GET /cricsearch/_search
 
 ### Using standard indexing for search
 ```
-# விராட் கோலி without spell mistake
+# விராட் கோலி name without spell mistake
 GET /cricsearch/_search
 {
    "query": {
