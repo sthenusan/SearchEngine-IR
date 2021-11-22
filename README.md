@@ -262,3 +262,24 @@ GET /cricsearch/_search
  }
 }
 ```
+### WildCard Queries
+
+```GET /cricsearch/_search
+{
+    "query": {
+        "wildcard" : {
+	        "பெயர்" : "கோ*"     
+	        }
+    }
+}
+```
+```
+GET /cricsearch/_search
+{
+    "query": {
+        "wildcard" : {
+	        "பெயர்" : "*லி"     
+	        }
+    }
+}
+```
