@@ -461,3 +461,32 @@ GET /cricsearch/_search
  }
 }
 ```
+### Batsman or Keeper with more than 2500 runs, batting not இடதுகை and அணி இங்கிலாந்து
+```
+GET /cricsearch/_search
+{
+ "query": {
+   "bool": {
+     "must": {
+       "bool" : { 
+         "should": [
+           { "match": { "வகை": " துடுப்பாட்ட வீரர்" }},
+           { "match": { "வகை": "காப்பாளர் " }} 
+         ],
+         "filter": [ 
+       {
+         "range": {
+           "ஓட்டங்கள்" : {
+               "gte" : "2500"
+           }
+         }
+       }
+     ],
+         "must": { "match": { "அணி": "இங்கிலாந்து" }} 
+       }
+     },
+     "must_not": { "match": {"துடுப்பாட்டம்": "இடதுகை" }}
+   }
+ }
+}
+```
