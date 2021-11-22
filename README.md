@@ -312,3 +312,20 @@ GET /cricsearch/_search
    }
 }
 ```
+```
+## Player name with in ர்ன middle
+GET /cricsearch/_search
+{
+   "query": {
+       "wildcard" : {
+           "பெயர்" : "*ர்ன*"
+       }
+   },
+   "_source": ["பெயர்"],
+   "highlight": {
+       "fields" : {
+           "பெயர்" : {}
+       }
+   }
+}
+```
