@@ -51,7 +51,7 @@ DELETE /cricsearch
 ##########################################################################################
 
  ```
-## custom stop words and stemming new analyzer along with the standard analyzer
+### custom stop words and stemming new analyzer along with the standard analyzer
 
 ```
 PUT /cricsearch/
@@ -78,7 +78,7 @@ PUT /cricsearch/
         }
     }
  ```
-## Uploading data using bulk API
+### Uploading data using bulk API
  ```
 POST /_bulk
 { "index" : { "_index" : "cricsearch", "_type" : "_doc", "_id" :2 } }
@@ -91,7 +91,7 @@ POST /_bulk
 
 ```
 
-## Using custom indexing for search
+### Using custom indexing for search
 ```
 # விராட் கோலி songs spelling mistake
 GET /cricsearch/_search
@@ -106,7 +106,7 @@ GET /cricsearch/_search
 }
 ```
 
-## Using standard indexing for search
+### Using standard indexing for search
 ```
 # விராட் கோலி spelling mistake
 GET /cricsearch/_search
@@ -120,7 +120,7 @@ GET /cricsearch/_search
    }
 }
 ```
-## top 10 bastmans from 30 to 35 age using ஓட்டங்கள்"
+### top 10 bastmans from 30 to 35 age using ஓட்டங்கள்"
 ```
 GET /cricsearch/_search
 {
