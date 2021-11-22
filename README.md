@@ -51,7 +51,7 @@ DELETE /cricsearch
 ##########################################################################################
 
  ```
-### custom stop words and stemming new analyzer along with the standard analyzer
+### Custom stop words, stemming and synonym new analyzer along with the standard analyzer
 
 ```
 PUT /cricsearch/
