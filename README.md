@@ -120,11 +120,11 @@ GET /cricsearch/_search
    }
 }
 ```
-### top 10 bastmans from 30 to 35 age using ஓட்டங்கள்"
+### top 5 bastmans from 30 to 35 age using ஓட்டங்கள்"
 ```
 GET /cricsearch/_search
 {
-   "size" : 10,
+   "size" : 5,
     "sort" : [
        { "ஓட்டங்கள்" : {"order" : "desc"}}
    ],
@@ -137,4 +137,23 @@ GET /cricsearch/_search
        }
    }
 }
+```
+
+```
+# top 5 bastmans from இலங்கை
+GET /cricsearch/_search
+{
+   "size":5,
+   "sort" : [
+       { "ஓட்டங்கள்" : {"order" : "desc"}}
+   ],
+   "query": {
+       "multi_match": {
+             "query" : "இலங்கை",
+           "fields":["அணி"],
+           "fuzziness": "AUTO"
+       }
+   }
+}
+
 ```
