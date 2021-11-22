@@ -330,7 +330,7 @@ GET /cricsearch/_search
 }
 ```
 
-# இலங்கை வேகபந்துவீச்சு players with more than 50 இலக்குகள்
+### இலங்கை வேகபந்துவீச்சு players with more than 50 இலக்குகள்
 ```
 GET /cricsearch/_search
 {
@@ -361,7 +361,7 @@ GET /cricsearch/_search
 
 ```
 
-# வங்கதேசம் சுழல்பந்துவீச்சு players with more than  100 இலக்குகள் and 5000 ஓட்டங்கள் and  வயது 25 to 35
+### வங்கதேசம் சுழல்பந்துவீச்சு players with more than  100 இலக்குகள் and 5000 ஓட்டங்கள் and  வயது 25 to 35
 ```
 GET /cricsearch/_search
 {
