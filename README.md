@@ -1,5 +1,5 @@
 # SearchEngine--IR
-#### Project in Data Mining & Information Retrieval module 
+## Project in Data Mining & Information Retrieval module 
 
 This repo contains 100 players data scraped from https://www.cricbuzz.com and stored at player_details.json file. Web Scraping Cricbuzz for a player.ipynb is used to scrap the data from web.
 
@@ -106,9 +106,8 @@ POST /_bulk
 
 ```
 
+### விராட் கோலி  name spelling mistake
 ```
-#Using custom indexing for search
-# விராட் கோலி  name spelling mistake
 GET /cricsearch/_search
 {
    "query": {
@@ -121,10 +120,9 @@ GET /cricsearch/_search
 }
 ```
 
-
+###விராட் கோலி name without spell mistake
 ```
-#Using standard indexing for search
-#விராட் கோலி name without spell mistake
+
 GET /cricsearch/_search
 {
    "query": {
@@ -137,8 +135,8 @@ GET /cricsearch/_search
 }
 ```
 
+###top 5 bastmans age from 30 to 35
 ```
-#top 5 bastmans from 30 to 35 age using ஓட்டங்கள்
 GET /cricsearch/_search
 {
    "size" : 5,
@@ -156,9 +154,8 @@ GET /cricsearch/_search
 }
 ```
 
-
+###top 5 bastmans from இலங்கை
 ```
-#top 5 bastmans from இலங்கை
 GET /cricsearch/_search
 {
    "size":5,
@@ -192,7 +189,6 @@ GET /cricsearch/_search
 
 ###5 சகலதுறை வீரர்
 ```
-
 GET /cricsearch/_search
 {
    "size":5,
