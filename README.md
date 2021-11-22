@@ -201,7 +201,7 @@ GET /cricsearch/_search
    }
 }
 ```
-### Bolwers got wickets more than 100
+### Bolwers got இலக்குகள் more than 100
 ```
 GET /cricsearch/_search
 {
