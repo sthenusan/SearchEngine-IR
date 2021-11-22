@@ -37,7 +37,7 @@ Bulk API format of those 100 players are stored as ```player_details.json``` fil
 
 The following Query DSL are supported for all the diiferent types of user queries.
 
-##  Query DSL for ElasticSearch search engine
+###  Query DSL for ElasticSearch search engine
 
 ```
  # deleting an index(database)
