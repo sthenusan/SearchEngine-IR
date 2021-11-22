@@ -88,4 +88,29 @@ POST /_bulk
 
 ```
 
+# Using custom indexing for search
+# விராட் கோலி songs spelling mistake
+GET /cricsearch/_search
+{
+   "query": {
+       "multi_match" : {
+           "query" : "விராட் கோலி",
+           "fuzziness": "AUTO",
+       "analyzer": "my_analyzer"
+       }
+   }
+}
+
+# Using standard indexing for search
+# விராட் கோலி spelling mistake
+GET /cricsearch/_search
+{
+   "query": {
+       "multi_match" : {
+           "query" : "விராட் கோலி",
+           "fuzziness": "AUTO",
+       "analyzer": "standard"
+       }
+   }
+}
 
