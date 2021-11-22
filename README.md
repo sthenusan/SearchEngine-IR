@@ -461,7 +461,7 @@ GET /cricsearch/_search
  }
 }
 ```
-### Batsman or Keeper with more than 2500 runs, batting not இடதுகை and அணி இங்கிலாந்து
+### துடுப்பாட்ட வீரர் or காப்பாளர் with more than 2500 runs, batting not இடதுகை and அணி இங்கிலாந்து
 ```
 GET /cricsearch/_search
 {
