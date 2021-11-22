@@ -110,6 +110,7 @@ POST /_bulk
 ```
 GET /cricsearch/_search
 {
+   "size":1,
    "query": {
        "multi_match" : {
            "query" : "விராட் கல",
@@ -125,6 +126,7 @@ GET /cricsearch/_search
 
 GET /cricsearch/_search
 {
+   "size":1,
    "query": {
        "multi_match" : {
            "query" : "விராட் கோலி",
