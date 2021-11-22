@@ -39,7 +39,7 @@ The following Query DSL are supported for all the diiferent types of user querie
 
 ##  Query DSL for ElasticSearch search engine
 
- ```
+
  # deleting an index(database)
 DELETE /cricsearch
 
@@ -50,8 +50,8 @@ DELETE /cricsearch
 ####   Please copy stopwords.txt & stem.txt to the analysis folder #######
 ##########################################################################################
 
-
-# custom stop words and stemming new analyzer along with the standard analyzer
+ ```
+## custom stop words and stemming new analyzer along with the standard analyzer
 PUT /cricsearch/
 {
         "settings": {
@@ -75,8 +75,9 @@ PUT /cricsearch/
             }
         }
     }
-
-# Uploading data using bulk API
+ ```
+## Uploading data using bulk API
+ ```
 POST /_bulk
 { "index" : { "_index" : "cricsearch", "_type" : "_doc", "_id" :2 } }
 {"பெயர்": "ரோஹித் சர்மா", "வயது": 34, "வகை": "துடுப்பாட்ட வீரர்", "துடுப்பாட்டம்": "வலதுகை துடுப்பாட்டம்", "பந்துவீச்சு": "வலதுகை சுழல் பந்துவீச்சு", "அணி": "இந்தியா", "இலக்குகள்": 1, "ஓட்டங்கள்": 9205}
@@ -88,7 +89,7 @@ POST /_bulk
 
 ```
 
-# Using custom indexing for search
+## Using custom indexing for search
 ```
 # விராட் கோலி songs spelling mistake
 GET /cricsearch/_search
@@ -103,7 +104,7 @@ GET /cricsearch/_search
 }
 ```
 
-# Using standard indexing for search
+## Using standard indexing for search
 ```
 # விராட் கோலி spelling mistake
 GET /cricsearch/_search
@@ -113,6 +114,24 @@ GET /cricsearch/_search
            "query" : "விராட் கோலி",
            "fuzziness": "AUTO",
        "analyzer": "standard"
+       }
+   }
+}
+```
+## top 10 bastmans from 30 to 35 age using ஓட்டங்கள்"
+```
+GET /cricsearch/_search
+{
+   "size" : 10,
+    "sort" : [
+       { "ஓட்டங்கள்" : {"order" : "desc"}}
+   ],
+   "query": {
+       "range" : {
+           "வயது" : {
+               "gte" : "30",
+               "lte" :  "35"
+           }
        }
    }
 }
