@@ -108,7 +108,7 @@ GET /cricsearch/_search
 
 ### Using standard indexing for search
 ```
-# விராட் கோலி spelling mistake
+# விராட் கோலி without spell mistake
 GET /cricsearch/_search
 {
    "query": {
