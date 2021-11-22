@@ -108,7 +108,7 @@ GET /cricsearch/_search
 
 ### Using standard indexing for search
 ```
-# விராட் கோலி name without spell mistake
+#விராட் கோலி name without spell mistake
 GET /cricsearch/_search
 {
    "query": {
@@ -120,8 +120,9 @@ GET /cricsearch/_search
    }
 }
 ```
-### top 5 bastmans from 30 to 35 age using ஓட்டங்கள்"
+
 ```
+#top 5 bastmans from 30 to 35 age using ஓட்டங்கள்
 GET /cricsearch/_search
 {
    "size" : 5,
@@ -139,9 +140,9 @@ GET /cricsearch/_search
 }
 ```
 
-### top 5 bastmans from இலங்கை
-```
 
+```
+#top 5 bastmans from இலங்கை
 GET /cricsearch/_search
 {
    "size":5,
@@ -159,8 +160,9 @@ GET /cricsearch/_search
 
 ```
 
-### 5 சகலதுறை வீரர்
+
 ```
+#5 சகலதுறை வீரர்
 GET /cricsearch/_search
 {
    "size":5,
