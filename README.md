@@ -436,3 +436,28 @@ GET /cricsearch/_search
  }
 }
 ```
+# வயது less than 25 in players from இந்தியா 
+```
+GET /cricsearch/_search
+{
+ "query": {
+   "bool": {
+     "must": [{
+         "match": {
+           "அணி": "இந்தியா"
+         }
+       }
+     ],
+     "filter": [ 
+       {
+         "range": {
+           "வயது" : {
+               "lte" : "25"
+           }
+         }
+       }
+     ]
+   }
+ }
+}
+```
