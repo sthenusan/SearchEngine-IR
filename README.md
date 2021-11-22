@@ -83,11 +83,12 @@ PUT /cricsearch/
     }
  ```
  
+### checking the custom analyzer(stopwords, stemming, synonym)
 ```
-#checking the custom analyzer(stopwords, stemming)
-GET /cricsearch/_analyze
+##similar word support
+GET /cricsearch2/_analyze
 {
- "text": ["ஓட்டம்"],
+ "text": ["போலர் "],
  "analyzer": "my_analyzer"
 }
 ```
