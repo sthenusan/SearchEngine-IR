@@ -201,3 +201,16 @@ GET /cricsearch/_search
    }
 }
 ```
+### bolwers got wickets more than 100
+```
+GET /cricsearch/_search
+{
+    "query": {
+        "range": {
+            "இலக்குகள்" : {
+                "gte" : "100"
+            }
+        }
+    }
+}
+```
