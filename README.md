@@ -39,7 +39,7 @@ The following Query DSL are supported for all the diiferent types of user querie
 
 ##  Query DSL for ElasticSearch search engine
 
-
+```
  # deleting an index(database)
 DELETE /cricsearch
 
@@ -52,6 +52,8 @@ DELETE /cricsearch
 
  ```
 ## custom stop words and stemming new analyzer along with the standard analyzer
+
+```
 PUT /cricsearch/
 {
         "settings": {
