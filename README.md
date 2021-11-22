@@ -330,7 +330,7 @@ GET /cricsearch/_search
 }
 ```
 
-### Srilankan வேகபந்துவீச்சு players with more than 50 இலக்குகள்
+# இலங்கை வேகபந்துவீச்சு players with more than 50 இலக்குகள்
 ```
 GET /cricsearch/_search
 {
@@ -358,4 +358,52 @@ GET /cricsearch/_search
    }
  }
 }
+
 ```
+
+# வங்கதேசம் சுழல்பந்துவீச்சு players with more than  100 இலக்குகள் and 5000 ஓட்டங்கள் and  வயது 25 to 35
+```
+GET /cricsearch/_search
+{
+ "query": {
+   "bool": {
+     "must": [{
+         "match": {
+           "அணி": "வங்கதேசம்"
+         }
+       },
+       {
+         "range": {
+           "இலக்குகள்" : {
+               "gte" : "100"
+           }
+         }
+       },
+       {
+          "match": {
+           "பந்துவீச்சு" :  "சுழல்"
+           
+         }
+       },
+      {
+         "range": {
+           "ஓட்டங்கள்" : {
+               "gte" : "5000"
+           }
+         }
+       },
+       {
+          "range": {
+            "வயது" : {
+               "gte" : "25",
+               "lte" :  "35"
+               
+           }
+         }
+       }
+     ]
+   }
+ }
+}
+```
+
