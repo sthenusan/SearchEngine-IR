@@ -158,3 +158,18 @@ GET /cricsearch/_search
 }
 
 ```
+
+### 5 சகலதுறை வீரர்
+```
+GET /cricsearch/_search
+{
+   "size":5,
+   "query": {
+       "multi_match": {
+           "query" : "சகலதுறை வீரர்",
+           "fields":["வகை"],
+           "fuzziness": "AUTO"
+       }
+   }
+}
+```
