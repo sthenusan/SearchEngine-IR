@@ -329,3 +329,33 @@ GET /cricsearch/_search
    }
 }
 ```
+
+### Srilankan வேகபந்துவீச்சு players with more than 50 இலக்குகள்
+```
+GET /cricsearch/_search
+{
+ "query": {
+   "bool": {
+     "must": [{
+         "match": {
+           "அணி": "இலங்கை"
+         }
+       },
+       {
+         "range": {
+           "இலக்குகள்" : {
+               "gte" : "50"
+           }
+         }
+       },
+       {
+          "match": {
+           "பந்துவீச்சு" :  "வேக"
+           
+         }
+       }
+     ]
+   }
+ }
+}
+```
