@@ -95,7 +95,7 @@ GET /cricsearch/_search
 {
    "query": {
        "multi_match" : {
-           "query" : "விராட் கோலி",
+           "query" : "விராட் கல",
            "fuzziness": "AUTO",
        "analyzer": "my_analyzer"
        }
