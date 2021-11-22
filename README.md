@@ -214,3 +214,32 @@ GET /cricsearch/_search
     }
 }
 ```
+### Top இலங்கை சகலதுறை வீரர் with more than 50 இலக்குகள் and 500 ஓட்டங்கள்.
+```
+GET /cricsearch/_search
+{
+ "query": {
+   "bool": {
+     "must": [{
+         "match": {
+           "அணி": "இலங்கை"
+         }
+       },
+       {
+         "range": {
+           "இலக்குகள்" : {
+               "gte" : "50"
+           }
+         }
+       },
+       {
+          "range": {
+           "ஓட்டங்கள்" : {
+               "gte" : "500"
+           }
+         }
+       }
+     ]
+   }
+ }
+}
