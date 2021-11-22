@@ -283,3 +283,13 @@ GET /cricsearch/_search
     }
 }
 ```
+```
+GET /cricsearch/_search
+{
+    "query": {
+        "query_string": {
+            "query" : "கிறிஸ்*"
+        }
+    }
+}
+```
