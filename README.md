@@ -243,3 +243,20 @@ GET /cricsearch/_search
    }
  }
 }
+
+```
+# top 5 WK Batsman  
+GET /cricsearch/_search
+{
+   "size":5,
+   "sort" : [
+       { "ஓட்டங்கள்" : {"order" : "desc"}}
+   ],
+ "query": {
+   "multi_match" : {
+     "query":    "காப்பாளர்",
+     "fields":["வகை"],
+     "fuzziness": "AUTO"
+   }
+ }
+}
