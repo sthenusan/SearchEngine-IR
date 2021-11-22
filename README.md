@@ -175,8 +175,6 @@ GET /cricsearch/_search
 }
 
 ```
-
-
 ```
 #5 சகலதுறை வீரர்
 GET /cricsearch/_search
@@ -189,5 +187,19 @@ GET /cricsearch/_search
            "fuzziness": "AUTO"
        }
    }
+}
+```
+
+### batsmans scored more than 10000 runs
+```
+GET /cricsearch/_search
+{
+    "query": {
+        "range": {
+            "ஓட்டங்கள்" : {
+                "gte" : "10000"
+            }
+        }
+    }
 }
 ```
