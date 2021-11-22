@@ -295,3 +295,20 @@ GET /cricsearch/_search
     }
 }
 ```
+```
+#Player firstname or lastname ending in ட்
+GET /cricsearch/_search
+{
+   "query": {
+       "wildcard" : {
+           "பெயர்" : "*ட்"
+       }
+   },
+   "_source": ["பெயர்"],
+   "highlight": {
+       "fields" : {
+           "பெயர்" : {}
+       }
+   }
+}
+```
