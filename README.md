@@ -78,6 +78,16 @@ PUT /cricsearch/
         }
     }
  ```
+ 
+```
+#checking the custom analyzer(stopwords, stemming)
+GET /cricsearch/_analyze
+{
+ "text": ["ஓட்டம்"],
+ "analyzer": "my_analyzer"
+}
+```
+  
 ### Uploading data using bulk API
  ```
 POST /_bulk
