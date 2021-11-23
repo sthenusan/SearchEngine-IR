@@ -560,3 +560,17 @@ GET /cricsearch/_search
 }
 
 ```
+### Can search for players only with விபரம் (Text Mining)
+```
+GET /cricsearch/_search
+{
+  "query": {
+    "more_like_this" : {
+      "fields" : ["விபரம்"],  
+      "like" : "இவர் ஐசிசியின் ஒருநாள் பன்னாட்டுத் துடுப்பாட்டத்தின் பன்முக ஆட்டக்காரர்கள்",
+      "min_term_freq" : 7,
+      "max_query_terms" : 12
+    }
+  }
+}
+```
