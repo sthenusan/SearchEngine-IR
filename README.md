@@ -1,4 +1,4 @@
-# SearchEngine Index for Famous People (Cricket Players)
+# Index Details for Famous People (Cricket Players)
 ## Project in CS4642- Data Mining & Information Retrieval module 
 
 This repo contains 100 players data scraped from [Cricbuzz](https://www.cricbuzz.com) stored at ```player_details.json``` file. ```Web Scraping Cricbuzz for a player.ipynb``` is used to scrap the data from Cricbuzz web. Those 100 players details are mainly focused on one day international cricket for runs and wickets datas.
