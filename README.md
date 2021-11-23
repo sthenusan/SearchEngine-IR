@@ -316,7 +316,8 @@ GET /cricsearch/_search
 ```
 ### WildCard Queries
 
-```GET /cricsearch/_search
+```
+GET /cricsearch/_search
 {
     "query": {
         "wildcard" : {
