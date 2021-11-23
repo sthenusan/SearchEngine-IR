@@ -42,7 +42,7 @@ The following Query DSL are supported for all the diiferent types of user querie
 ###  Query DSL for ElasticSearch search engine
 
 ```
- # deleting an index(database)
+#deleting an index(database)
 DELETE /cricsearch
 
 
