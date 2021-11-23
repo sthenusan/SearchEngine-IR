@@ -14,7 +14,8 @@ This repo contains 100 players data scraped from https://www.cricbuzz.com and st
 "Bowling": "Right Arm Fast Medium",
 "Team": "India", 
 "Wickets": 4, 
-"Runs": 12169
+"Runs": 12169,
+"Details": "He is currently the team captain. A right-handed batsman, he is considered one of the best cricketers in the world"
 }
 ```
 
@@ -29,7 +30,8 @@ This repo contains 100 players data scraped from https://www.cricbuzz.com and st
 "பந்துவீச்சு": "வலதுகை வேக பந்துவீச்சு",
 "அணி": "இந்தியா", 
 "இலக்குகள்": 4, 
-"ஓட்டங்கள்": 12169
+"ஓட்டங்கள்": 12169,
+"விபரம்":"இவர் தற்போது அணித் தலைவராக உள்ளார். வலது கை மட்டையாளரான இவர் சர்வதேச சிறந்த துடுப்பாட வீரர்களில் ஒருவராகக் கருதப்படுகிறார்"
 }
 ```
 
