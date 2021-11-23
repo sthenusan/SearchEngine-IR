@@ -547,7 +547,6 @@ GET /cricsearch/_search
 ```
 ### Players involed in ஐபிஎல் using விபரம்.
 ```
-
 GET /cricsearch/_search
 {
   "query": {
