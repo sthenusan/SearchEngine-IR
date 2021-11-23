@@ -35,7 +35,7 @@ After scrapping, I preproceed data to convert it into Tamil language. I simplifi
 }
 ```
 
-Bulk API format of those 100 players are stored as ```player_details.json``` file
+Bulk API format of those 100 players are stored as ```datascript_es.txt``` file
 
 The following Query DSL are supported for all the diiferent types of user queries.
 
@@ -53,8 +53,9 @@ DELETE /cricsearch
 ####   Please copy stopwords.txt & stem.txt to the analysis folder #######
 ##########################################################################################
 ```
-### Custom stop words, stemming and synonym new analyzer along with the standard analyzer
 
+### Custom stop words, stemming and synonym new analyzer along with the standard analyzer
+I have given stopword consideration in tokenitation, Stemming and synonym support as well.
 ```
 PUT /cricsearch/
 {
@@ -84,7 +85,7 @@ PUT /cricsearch/
         }
     }
  ```
- 
+
 ### checking the custom analyzer(stopwords, stemming, synonym)
 ```
 ##similar word support
