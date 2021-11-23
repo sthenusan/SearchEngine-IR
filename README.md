@@ -225,7 +225,7 @@ GET /cricsearch/_search
 
 ```
 
-### PLayers scored more than 10000 runs
+### Players scored more than 10000 runs
 ```
 GET /cricsearch/_search
 {
