@@ -432,8 +432,7 @@ GET /cricsearch/_search
        },
        {
           "match": {
-           "பந்துவீச்சு" :  "சுழல்"
-           
+           "பந்துவீச்சு" :  "சுழல்பந்துவீச்சு"
          }
        },
       {
@@ -456,9 +455,10 @@ GET /cricsearch/_search
    }
  }
 }
+
 ```
 
-### Bowler with வலதுகை வேக பந்துவீச்சு and more than 106 இலக்குகள் and வகை (சகலதுறை வீரர் or பந்து வீச்சாளர்) and not அஸ்திரேலியா player.
+### Bowler with வலதுகை வேகபந்துவீச்சு and more than 60 இலக்குகள் and வகை (சகலதுறை வீரர் or பந்து வீச்சாளர்) and not அஸ்திரேலியா player.
 ```
 GET /cricsearch/_search
 {
@@ -467,25 +467,26 @@ GET /cricsearch/_search
      "must": {
        "bool" : { 
          "should": [
-           { "match": { "வகை": "சகலதுறை வீரர்" }},
-           { "match": { "வகை": "பந்து வீச்சாளர்" }} 
+           { "match": { "வகை": "சகலதுறைவீரர்" }},
+           { "match": { "வகை": "பந்துவீச்சாளர்" }} 
          ],
          "filter": [ 
        {
          "range": {
            "இலக்குகள்" : {
-               "gte" : "106"
+               "gte" : "60"
            }
          }
        }
      ],
-         "must": { "match": { "பந்துவீச்சு": "வலதுகை வேக பந்துவீச்சு" }} 
+         "must": { "match": { "பந்துவீச்சு": "வலதுகை வேகபந்துவீச்சு" }} 
        }
      },
      "must_not": { "match": {"அணி": "அஸ்திரேலியா" }}
    }
  }
 }
+
 ```
 ### வயது less than 25 in players from இந்தியா 
 ```
@@ -511,9 +512,11 @@ GET /cricsearch/_search
    }
  }
 }
+
 ```
 ### துடுப்பாட்ட வீரர் or காப்பாளர் with more than 2500 runs, batting not இடதுகை and அணி இங்கிலாந்து
 ```
+
 GET /cricsearch/_search
 {
  "query": {
@@ -521,7 +524,7 @@ GET /cricsearch/_search
      "must": {
        "bool" : { 
          "should": [
-           { "match": { "வகை": " துடுப்பாட்ட வீரர்" }},
+           { "match": { "வகை": " துடுப்பாட்டவீரர்" }},
            { "match": { "வகை": "காப்பாளர் " }} 
          ],
          "filter": [ 
@@ -540,17 +543,21 @@ GET /cricsearch/_search
    }
  }
 }
+
 ```
 ### Players involed in ஐபிஎல் using விபரம்.
 ```
+
 GET /cricsearch/_search
 {
   "query": {
     "multi_match": {
       "query": "ஐபிஎல்",
+      "fields":["விபரம்"], 
       "fuzziness": "AUTO",
       "analyzer": "my_analyzer"
     }
   }
 }
+
 ```
