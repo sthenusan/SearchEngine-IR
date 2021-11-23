@@ -187,7 +187,7 @@ GET /cricsearch/_search
 }
 ```
 
-### top 5 bastmans age from 30 to 35
+### top 5 run getters with age from 30 to 35
 ```
 GET /cricsearch/_search
 {
@@ -206,7 +206,7 @@ GET /cricsearch/_search
 }
 ```
 
-### top 5 bastmans from இலங்கை
+### top 5 player from இலங்கை ordering using ஓட்டங்கள்
 ```
 GET /cricsearch/_search
 {
@@ -225,7 +225,7 @@ GET /cricsearch/_search
 
 ```
 
-### Batsmans scored more than 10000 runs
+### PLayers scored more than 10000 runs
 ```
 GET /cricsearch/_search
 {
@@ -239,21 +239,21 @@ GET /cricsearch/_search
 }
 ```
 
-### 5 சகலதுறை வீரர்
+### 5 சகலதுறைவீரர்
 ```
 GET /cricsearch/_search
 {
    "size":5,
    "query": {
        "multi_match": {
-           "query" : "சகலதுறை வீரர்",
+           "query" : "சகலதுறைவீரர்",
            "fields":["வகை"],
            "fuzziness": "AUTO"
        }
    }
 }
 ```
-### Bolwers got இலக்குகள் more than 100
+### Players got இலக்குகள் more than 100
 ```
 GET /cricsearch/_search
 {
@@ -266,7 +266,7 @@ GET /cricsearch/_search
     }
 }
 ```
-### Top இலங்கை சகலதுறை வீரர் with more than 50 இலக்குகள் and 500 ஓட்டங்கள்.
+### Top இலங்கை player with more than 50 இலக்குகள் and 500 ஓட்டங்கள்.
 ```
 GET /cricsearch/_search
 {
@@ -297,7 +297,7 @@ GET /cricsearch/_search
 }
 
 ```
-## Top 5 WK Batsman  
+## Top 5 காப்பாளர் using ஓட்டங்கள்
 ```
 GET /cricsearch/_search
 {
