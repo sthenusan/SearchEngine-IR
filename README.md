@@ -1,7 +1,7 @@
 # SearchEngine Index for Famous People (Cricket Players)
 ## Project in CS4642- Data Mining & Information Retrieval module 
 
-This repo contains 100 players data scraped from [Cricbuzz](https://www.cricbuzz.com) and [wikipedia](https://ta.wikipedia.org/wiki/%E0%AE%AE%E0%AF%81%E0%AE%A4%E0%AE%B1%E0%AF%8D_%E0%AE%AA%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%AE%E0%AF%8D) and stored at ```player_details.json``` file. ```Web Scraping Cricbuzz for a player.ipynb``` is used to scrap the data from Cricbuzz web and Wikipedia scrapping is done in ```Wiki_Web_scrabing.ipynb```.
+This repo contains 100 players data scraped from [Cricbuzz](https://www.cricbuzz.com) stored at ```player_details.json``` file. ```Web Scraping Cricbuzz for a player.ipynb``` is used to scrap the data from Cricbuzz web. Those 100 players details are mainly focused on one day international cricket for runs and wickets datas.
 
 ## Sample JSON data of scraped player
 
@@ -15,9 +15,9 @@ This repo contains 100 players data scraped from [Cricbuzz](https://www.cricbuzz
 "Team": "India", 
 "Wickets": 4, 
 "Runs": 12169,
-"Details": "He is currently the team captain. A right-handed batsman, he is considered one of the best cricketers in the world"
 }
 ```
+After scrapping, I preproceed data to convert it into Tamil language. I simplified data in the prefocessing step. I added an extra metadata named "விபரம்" is added to improve the quality of the data and stored as ```player_details.json``` file.
 
 ## Sample JSON data of a processed player data
 
