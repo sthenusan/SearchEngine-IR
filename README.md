@@ -133,7 +133,7 @@ GET /cricsearch/_search
        "multi_match" : {
            "query" : "விராட் கோலி",
            "fuzziness": "AUTO",
-       "analyzer": "standard"
+       "analyzer": "my_analyzer"
        }
    }
 }
