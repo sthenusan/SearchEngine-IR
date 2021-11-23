@@ -253,7 +253,7 @@ GET /cricsearch/_search
    }
 }
 ```
-### Players got இலக்குகள் more than 100
+### Players got இலக்குகள் 100 or more than 100
 ```
 GET /cricsearch/_search
 {
