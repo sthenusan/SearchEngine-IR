@@ -17,7 +17,7 @@ This repo contains 100 players data scraped from [Cricbuzz](https://www.cricbuzz
 "Runs": 12169,
 }
 ```
-After scrapping, I preprocessed the data to convert it into Tamil language and simplified data in the prefocessing step. I added an extra metadata for players named "விபரம்"  to improve the quality of the data and stored in ```player_details.json``` file.
+After scrapping, I preprocessed the data to convert it into Tamil language and simplified data in the prefocessing step. I added an extra metadata for players named "விபரம்" using [espncricinfo](https://www.espncricinfo.com/) to improve the quality of the data and stored in ```player_details.json``` file.
 
 ## Sample JSON data of a processed player data
 
