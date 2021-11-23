@@ -45,14 +45,14 @@ The following Query DSL are supported for all the diiferent types of user querie
 #deleting an index(database)
 DELETE /cricsearch
 
-
+ ```
+ ```
 ##########################################################################################
 #########          This must be run before creating the index(database)       ############
 #######      Make a folder named analysis in elasticserach config folder       ###########
 ####   Please copy stopwords.txt & stem.txt to the analysis folder #######
 ##########################################################################################
-
- ```
+```
 ### Custom stop words, stemming and synonym new analyzer along with the standard analyzer
 
 ```
