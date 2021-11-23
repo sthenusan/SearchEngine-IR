@@ -87,13 +87,61 @@ PUT /cricsearch/
  ```
 
 ### checking the custom analyzer(stopwords, stemming, synonym)
+#### Similar Word Support
 ```
-##similar word support
-GET /cricsearch2/_analyze
+	
+	GET /cricsearch/_analyze
+	{
+	 "text": ["பாரதம்"],
+	 "analyzer": "my_analyzer"
+	}
+
+	GET /cricsearch/_analyze
+	{
+	 "text": ["சிலிங்கா "],
+	 "analyzer": "my_analyzer"
+	}
+
+	GET /cricsearch/_analyze
+	{
+	 "text": ["மட்டையாளர் "],
+	 "analyzer": "my_analyzer"
+	}
+```
+#### Stop Word Support
+```
+GET /cricsearch/_analyze
 {
- "text": ["பாரதம்"],
+ "text": ["மிகவும் சிறந்த 10 வீரர்கள்"],
  "analyzer": "my_analyzer"
 }
+
+GET /cricsearch/_analyze
+{
+ "text": ["கேப்டன்கூல் எனப்படும் மற்ற வீரர்கள்"],
+ "analyzer": "my_analyzer"
+}
+
+GET /cricsearch/_analyze
+{
+ "text": ["இதை விட  சிறந்த 10 வீரர்கள்"],
+ "analyzer": "my_analyzer"
+}
+```
+#### Stemming Support
+```
+GET /cricsearch/_analyze
+{
+ "text": ["தலைவராகவும் இருந்த துடுப்பு வீரர்"],
+ "analyzer": "my_analyzer"
+}
+
+GET /cricsearch/_analyze
+{
+ "text": ["தரவரிசையில்  முன்னாள்  ஆத்திரேலிய வீரர்"],    
+ "analyzer": "my_analyzer"
+}
+
 ```
   
 ### Uploading data using bulk API
