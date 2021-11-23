@@ -89,24 +89,23 @@ PUT /cricsearch/
 ### checking the custom analyzer(stopwords, stemming, synonym)
 #### Similar Word Support
 ```
-	
-	GET /cricsearch/_analyze
-	{
-	 "text": ["பாரதம்"],
-	 "analyzer": "my_analyzer"
-	}
+GET /cricsearch/_analyze
+{
+  "text": ["பாரதம்"],
+  "analyzer": "my_analyzer"
+}
 
-	GET /cricsearch/_analyze
-	{
-	 "text": ["சிலிங்கா "],
-	 "analyzer": "my_analyzer"
-	}
+GET /cricsearch/_analyze
+{
+"text": ["சிலிங்கா "],
+"analyzer": "my_analyzer"
+}
 
-	GET /cricsearch/_analyze
-	{
-	 "text": ["மட்டையாளர் "],
-	 "analyzer": "my_analyzer"
-	}
+GET /cricsearch/_analyze
+{
+"text": ["மட்டையாளர் "],
+"analyzer": "my_analyzer"
+}
 ```
 #### Stop Word Support
 ```
