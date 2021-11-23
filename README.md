@@ -91,7 +91,7 @@ PUT /cricsearch/
 ##similar word support
 GET /cricsearch2/_analyze
 {
- "text": ["போலர் "],
+ "text": ["பாரதம்"],
  "analyzer": "my_analyzer"
 }
 ```
