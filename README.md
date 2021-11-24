@@ -1,7 +1,18 @@
 # Index Details for Famous People (Cricket Players)
 ## Project in CS4642- Data Mining & Information Retrieval module 
 
-This repo contains 100 players data scraped from [Cricbuzz](https://www.cricbuzz.com) stored at ```player_details.json``` file. ```Web Scraping Cricbuzz for a player.ipynb``` is used to scrap the data from Cricbuzz web. Those 100 players details are mainly focused on one day international cricket for runs and wickets datas.
+### Project Description
+Need to create an Index for famous peoples using SOLR or Elasticsearch
+
+### Requirements
+1. Data (Search Data)
+2. Elasticsearch (Build Index)
+3. Kibana (Visualization)
+4. Python (Data Scraping and Perprocessing)
+
+This repo contains players data scraped from [Cricbuzz](https://www.cricbuzz.com) stored at ```player_details.json``` file. ```Web Scraping Cricbuzz for a player.ipynb``` is used to scrap the data from Cricbuzz web. Those 100 players details are mainly focused on one day international cricket for runs and wickets datas.
+
+
 
 ## Sample JSON data of scraped player
 
@@ -35,7 +46,7 @@ After scrapping, I preprocessed the data to convert it into Tamil language and s
 }
 ```
 
-Bulk API format of those 100 players are stored as ```datascript_es.txt``` file
+Bulk API format of players are stored as ```datascript_es.txt``` file
 
 The following Query DSL are supported for all the diiferent types of user queries.
 
@@ -48,9 +59,9 @@ DELETE /cricsearch
  ```
  ```
 ##########################################################################################
-#########          This must be run before creating the index(database)       ############
+#########          This must be done before creating the index                ############
 #######      Make a folder named analysis in elasticserach config folder       ###########
-####   Please copy stopwords.txt & stem.txt to the analysis folder #######
+####   Please copy stopwords.txt, stem.txt and synonym.txt to the analysis folder #######
 ##########################################################################################
 ```
 
@@ -87,6 +98,7 @@ PUT /cricsearch/
  ```
 
 ### checking the custom analyzer(stopwords, stemming, synonym)
+
 #### Similar Word Support
 ```
 GET /cricsearch/_analyze
@@ -158,21 +170,6 @@ POST /_bulk
 
 ```
 
-### விராட் கோலி  name spelling mistake
-```
-GET /cricsearch/_search
-{
-   "size":1,
-   "query": {
-       "multi_match" : {
-           "query" : "விராட் கல",
-           "fuzziness": "AUTO",
-       "analyzer": "my_analyzer"
-       }
-   }
-}
-```
-
 ### விராட் கோலி name without spell mistake
 ```
 
@@ -188,6 +185,22 @@ GET /cricsearch/_search
    }
 }
 ```
+
+### விராட் கோலி  name spelling mistake
+```
+GET /cricsearch/_search
+{
+   "size":1,
+   "query": {
+       "multi_match" : {
+           "query" : "விராட் கல",
+           "fuzziness": "AUTO",
+       "analyzer": "my_analyzer"
+       }
+   }
+}
+```
+
 
 ### top 5 run getters with age from 30 to 35
 ```
@@ -206,6 +219,48 @@ GET /cricsearch/_search
        }
    }
 }
+```
+### Players scored more than 10000 runs
+```
+GET /cricsearch/_search
+{
+    "query": {
+        "range": {
+            "ஓட்டங்கள்" : {
+                "gte" : "10000"
+            }
+        }
+    }
+}
+```
+
+### Players got இலக்குகள் 100 or more than 100
+```
+GET /cricsearch/_search
+{
+    "query": {
+        "range": {
+            "இலக்குகள்" : {
+                "gte" : "100"
+            }
+        }
+    }
+}
+```
+### Players involed in ஐபிஎல் using விபரம்.
+```
+GET /cricsearch/_search
+{
+  "query": {
+    "multi_match": {
+      "query": "ஐபிஎல்",
+      "fields":["விபரம்"], 
+      "fuzziness": "AUTO",
+      "analyzer": "my_analyzer"
+    }
+  }
+}
+
 ```
 
 ### top 5 player from இலங்கை ordering using ஓட்டங்கள்
@@ -227,20 +282,6 @@ GET /cricsearch/_search
 
 ```
 
-### Players scored more than 10000 runs
-```
-GET /cricsearch/_search
-{
-    "query": {
-        "range": {
-            "ஓட்டங்கள்" : {
-                "gte" : "10000"
-            }
-        }
-    }
-}
-```
-
 ### 5 சகலதுறைவீரர்
 ```
 GET /cricsearch/_search
@@ -255,19 +296,51 @@ GET /cricsearch/_search
    }
 }
 ```
-### Players got இலக்குகள் 100 or more than 100
+
+## Top 5 காப்பாளர் using ஓட்டங்கள்
 ```
 GET /cricsearch/_search
 {
-    "query": {
-        "range": {
-            "இலக்குகள்" : {
-                "gte" : "100"
-            }
-        }
-    }
+   "size":5,
+   "sort" : [
+       { "ஓட்டங்கள்" : {"order" : "desc"}}
+   ],
+ "query": {
+   "multi_match" : {
+     "query":    "காப்பாளர்",
+     "fields":["வகை"],
+     "fuzziness": "AUTO"
+   }
+ }
 }
 ```
+### வயது less than 25 in players from இந்தியா 
+```
+GET /cricsearch/_search
+{
+ "query": {
+   "bool": {
+     "must": [{
+         "match": {
+           "அணி": "இந்தியா"
+         }
+       }
+     ],
+     "filter": [ 
+       {
+         "range": {
+           "வயது" : {
+               "lte" : "25"
+           }
+         }
+       }
+     ]
+   }
+ }
+}
+
+```
+
 ### Top இலங்கை player with more than 50 இலக்குகள் and 500 ஓட்டங்கள்.
 ```
 GET /cricsearch/_search
@@ -299,25 +372,10 @@ GET /cricsearch/_search
 }
 
 ```
-## Top 5 காப்பாளர் using ஓட்டங்கள்
-```
-GET /cricsearch/_search
-{
-   "size":5,
-   "sort" : [
-       { "ஓட்டங்கள்" : {"order" : "desc"}}
-   ],
- "query": {
-   "multi_match" : {
-     "query":    "காப்பாளர்",
-     "fields":["வகை"],
-     "fuzziness": "AUTO"
-   }
- }
-}
-```
-### WildCard Queries
 
+## WildCard Queries
+
+### Player first name or last name end with கோ
 ```
 GET /cricsearch/_search
 {
@@ -328,6 +386,7 @@ GET /cricsearch/_search
     }
 }
 ```
+### Player first name or last name end with லி
 ```
 GET /cricsearch/_search
 {
@@ -338,6 +397,7 @@ GET /cricsearch/_search
     }
 }
 ```
+### Player first name or last name start with கிறிஸ்
 ```
 GET /cricsearch/_search
 {
@@ -348,8 +408,9 @@ GET /cricsearch/_search
     }
 }
 ```
+
+### Player first name or last name ending in ட்
 ```
-#Player firstname or lastname ending in ட்
 GET /cricsearch/_search
 {
    "query": {
@@ -359,8 +420,9 @@ GET /cricsearch/_search
    }
 }
 ```
+### Player name with in ர்ன middle
 ```
-## Player name with in ர்ன middle
+
 GET /cricsearch/_search
 {
    "query": {
@@ -478,32 +540,7 @@ GET /cricsearch/_search
 }
 
 ```
-### வயது less than 25 in players from இந்தியா 
-```
-GET /cricsearch/_search
-{
- "query": {
-   "bool": {
-     "must": [{
-         "match": {
-           "அணி": "இந்தியா"
-         }
-       }
-     ],
-     "filter": [ 
-       {
-         "range": {
-           "வயது" : {
-               "lte" : "25"
-           }
-         }
-       }
-     ]
-   }
- }
-}
 
-```
 ### துடுப்பாட்ட வீரர் or காப்பாளர் with more than 2500 runs, batting not இடதுகை and அணி இங்கிலாந்து
 ```
 
@@ -535,22 +572,9 @@ GET /cricsearch/_search
 }
 
 ```
-### Players involed in ஐபிஎல் using விபரம்.
-```
-GET /cricsearch/_search
-{
-  "query": {
-    "multi_match": {
-      "query": "ஐபிஎல்",
-      "fields":["விபரம்"], 
-      "fuzziness": "AUTO",
-      "analyzer": "my_analyzer"
-    }
-  }
-}
 
-```
 ### Can search for players only with விபரம் (Text Mining)
+
 ```
 GET /cricsearch/_search
 {
