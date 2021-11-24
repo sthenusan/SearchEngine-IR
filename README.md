@@ -356,12 +356,6 @@ GET /cricsearch/_search
        "wildcard" : {
            "பெயர்" : "*ட்"
        }
-   },
-   "_source": ["பெயர்"],
-   "highlight": {
-       "fields" : {
-           "பெயர்" : {}
-       }
    }
 }
 ```
@@ -372,12 +366,6 @@ GET /cricsearch/_search
    "query": {
        "wildcard" : {
            "பெயர்" : "*ர்ன*"
-       }
-   },
-   "_source": ["பெயர்"],
-   "highlight": {
-       "fields" : {
-           "பெயர்" : {}
        }
    }
 }
