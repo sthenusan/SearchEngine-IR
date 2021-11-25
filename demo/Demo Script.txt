@@ -1,1 +1,432 @@
+#Demo For IR System
+#170628X - DMIR
+##############################################################
+#Similar Word Support
+GET /cricsearch/_analyze
+{
+"text": ["சிலிங்கா "],
+"analyzer": "my_analyzer"
+}
+
+GET /cricsearch/_analyze
+{
+"text": ["மட்டையாளர் "],
+"analyzer": "my_analyzer"
+}
+
+##############################################################
+
+#Stop Word Support
+GET /cricsearch/_analyze
+{
+ "text": ["மிகவும் சிறந்த 10 வீரர்கள்"],
+ "analyzer": "my_analyzer"
+}
+
+GET /cricsearch/_analyze
+{
+ "text": ["இதை விட  சிறந்த 10 வீரர்கள்"],
+ "analyzer": "my_analyzer"
+}
+
+#Stemming Support
+GET /cricsearch/_analyze
+{
+ "text": ["தலைவராகவும் இருந்த துடுப்பு வீரர்"],
+ "analyzer": "my_analyzer"
+}
+
+GET /cricsearch/_analyze
+{
+ "text": ["தரவரிசையில்  முன்னாள்  ஆத்திரேலிய வீரர்"],    
+ "analyzer": "my_analyzer"
+}
+
+##############################################################
+
+#Simple query with fuzziness
+#விராட் கோலி name without spell mistake
+GET /cricsearch/_search
+{
+   "size":1,
+   "query": {
+       "multi_match" : {
+           "query" : "விராட் கோலி",
+           "fuzziness": "AUTO",
+       "analyzer": "my_analyzer"
+       }
+   }
+}
+
+# Simple query with spelling mistake
+GET /cricsearch/_search
+{
+    "query": {
+        "query_string": {
+            "query":"விராட"  
+        }
+    }
+}
+
+#விராட் கோலி name spelling mistake fuzziness
+GET /cricsearch/_search
+{
+   "size":1,
+   "query": {
+       "multi_match" : {
+           "query" : "விராட" ,
+           "fuzziness": "AUTO",
+       "analyzer": "my_analyzer"
+       }
+   }
+}
+
+
+##############################################################
+
+#Multi Match Query in selected Field
+
+# 5 சகலதுறைவீரர்
+GET /cricsearch/_search
+{
+   "size":5,
+   "query": {
+       "multi_match": {
+           "query" : "சகலதுறைவீரர்",
+           "fields":["வகை"],
+           "fuzziness": "AUTO"
+       }
+   }
+}
+
+#Multi Match Query in selected Field with sort
+
+#top 5 player from இலங்கை ordering using ஓட்டங்கள்
+GET /cricsearch/_search
+{
+   "size":5,
+   "sort" : [
+       { "ஓட்டங்கள்" : {"order" : "desc"}}
+   ],
+   "query": {
+       "multi_match": {
+           "query" : "இலங்கை",
+           "fields":["அணி"],
+           "fuzziness": "AUTO"
+       }
+   }
+}
+
+#Players involed in ஐபிஎல் using விபரம்.
+
+GET /cricsearch/_search
+{
+  "query": {
+    "multi_match": {
+      "query": "ஐபிஎல்",
+      "fields":["விபரம்"], 
+      "fuzziness": "AUTO",
+      "analyzer": "my_analyzer"
+    }
+  }
+}
+
+
+#############################################################################
+
+# Simple Range Query
+#Players scored more than 10000 runs
+GET /cricsearch/_search
+{
+    "query": {
+        "range": {
+            "ஓட்டங்கள்" : {
+                "gte" : "10000"
+            }
+        }
+    }
+}
+
+# Range Query with sort
+#top 5 run getters with age from 30 to 35
+GET /cricsearch/_search
+{
+   "size" : 5,
+    "sort" : [
+       { "ஓட்டங்கள்" : {"order" : "desc"}}
+   ],
+   "query": {
+       "range" : {
+           "வயது" : {
+               "gte" : "30",
+               "lte" :  "35"
+           }
+       }
+   }
+}
+
+###############################################################################
+
+#WildCard Queries
+
+# first or last name start with  கோ
+GET /cricsearch/_search
+{
+    "query": {
+        "wildcard" : {
+	        "பெயர்" : "கோ*"     
+	        }
+    }
+}
+
+# first or last name end with லி   
+GET /cricsearch/_search
+{
+    "query": {
+        "wildcard" : {
+	        "பெயர்" : "*லி"     
+	        }
+    }
+}
+
+# Player firstname or lastname ending in ட்
+GET /cricsearch/_search
+{
+   "query": {
+       "wildcard" : {
+           "பெயர்" : "*ட்"
+       }
+   }
+}
+
+## Player name with in ர்ன middle
+GET /cricsearch/_search
+{
+   "query": {
+       "wildcard" : {
+           "பெயர்" : "*ர்ன*"
+       }
+   }
+}
+
+
+
+##############################################################
+# Simple Boolean Query
+
+# இலங்கை வேகபந்துவீச்சு players with more than 50 இலக்குகள்
+GET /cricsearch/_search
+{
+ "query": {
+   "bool": {
+     "must": [{
+         "match": {
+           "அணி": "இலங்கை"
+         }
+       },
+       {
+         "range": {
+           "இலக்குகள்" : {
+               "gte" : "50"
+           }
+         }
+       },
+       {
+          "match": {
+           "பந்துவீச்சு" :  "வேகபந்துவீச்சு"
+           
+         }
+       }
+     ]
+   }
+ }
+}
+
+
+#Top இலங்கை player with more than 50 இலக்குகள் and 500 ஓட்டங்கள்.
+
+GET /cricsearch/_search
+{
+ "query": {
+   "bool": {
+     "must": [{
+         "match": {
+           "அணி": "இலங்கை"
+         }
+       },
+       {
+         "range": {
+           "இலக்குகள்" : {
+               "gte" : "50"
+           }
+         }
+       },
+       {
+          "range": {
+           "ஓட்டங்கள்" : {
+               "gte" : "500"
+           }
+         }
+       }
+     ]
+   }
+ }
+}
+
+# More Complex Boolean Query
+
+# வங்கதேசம் சுழல்பந்துவீச்சு players with more than 100 இலக்குகள் and 
+# 5000 ஓட்டங்கள் and வயது 25 to 35
+GET /cricsearch/_search
+{
+ "query": {
+   "bool": {
+     "must": [{
+         "match": {
+           "அணி": "வங்கதேசம்"
+         }
+       },
+       {
+         "range": {
+           "இலக்குகள்" : {
+               "gte" : "100"
+           }
+         }
+       },
+       {
+          "match": {
+           "பந்துவீச்சு" :  "சுழல்பந்துவீச்சு"
+         }
+       },
+      {
+         "range": {
+           "ஓட்டங்கள்" : {
+               "gte" : "5000"
+           }
+         }
+       },
+       {
+          "range": {
+            "வயது" : {
+               "gte" : "25",
+               "lte" :  "35"
+               
+           }
+         }
+       }
+     ]
+   }
+ }
+}
+
+##############################################################
+# Boolean Queries with filter
+
+# வயது less than 25 in players from இந்தியா
+
+GET /cricsearch/_search
+{
+ "query": {
+   "bool": {
+     "must": [{
+         "match": {
+           "அணி": "இந்தியா"
+         }
+       }
+     ],
+     "filter": [ 
+       {
+         "range": {
+           "வயது" : {
+               "lte" : "25"
+           }
+         }
+       }
+     ]
+   }
+ }
+}
+
+
+# Bowler with வலதுகை வேகபந்துவீச்சு and more than 60 இலக்குகள் and வகை (சகலதுறை 
+#வீரர் or பந்து வீச்சாளர்) and not அஸ்திரேலியா player.
+
+GET /cricsearch/_search
+{
+ "query": {
+   "bool": {
+     "must": {
+       "bool" : { 
+         "should": [
+           { "match": { "வகை": "சகலதுறைவீரர்" }},
+           { "match": { "வகை": "பந்துவீச்சாளர்" }} 
+         ],
+         "filter": [ 
+       {
+         "range": {
+           "இலக்குகள்" : {
+               "gte" : "60"
+           }
+         }
+       }
+     ],
+         "must": { "match": { "பந்துவீச்சு": "வலதுகை வேகபந்துவீச்சு" }} 
+       }
+     },
+     "must_not": { "match": {"அணி": "அஸ்திரேலியா" }}
+   }
+ }
+}
+
+# துடுப்பாட்ட வீரர் or காப்பாளர் with more than 2500 runs, batting not இடதுகை and 
+# அணி இங்கிலாந்து
+
+GET /cricsearch/_search
+{
+ "query": {
+   "bool": {
+     "must": {
+       "bool" : { 
+         "should": [
+           { "match": { "வகை": " துடுப்பாட்டவீரர்" }},
+           { "match": { "வகை": "காப்பாளர் " }} 
+         ],
+         "filter": [ 
+       {
+         "range": {
+           "ஓட்டங்கள்" : {
+               "gte" : "2500"
+           }
+         }
+       }
+     ],
+         "must": { "match": { "அணி": "இங்கிலாந்து" }} 
+       }
+     },
+     "must_not": { "match": {"துடுப்பாட்டம்": "இடதுகை" }}
+   }
+ }
+}
+
+
+##############################################################
+
+# More like this query 
+# Can search for players only with விபரம் (Text Mining)
+
+GET /cricsearch/_search
+{
+  "query": {
+    "more_like_this" : {
+      "fields" : ["விபரம்"],  
+      "like" : "ஐசிசியின் ஒருநாள் பன்னாட்டுத் துடுப்பாட்டத்தின் பன்முக ஆட்டக்காரர்கள்",
+      "min_term_freq" : 1,
+      "max_query_terms" : 12
+    }
+  }
+}
+
+
+##############################################################
+
 
